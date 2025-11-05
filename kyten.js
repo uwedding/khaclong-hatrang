@@ -226,8 +226,8 @@ function saveSignature(userId, userCard, scale) {
 
   const signatureData = exportCanvas.toDataURL("image/png");
 
-  const GOOGLE_SCRIPT_URL_THAM_DU =
-    "https://script.google.com/macros/s/AKfycbwqI2rDyiHiFPCzS2xYz99a-QnrPA_im_fnuMvCmUhwrP0IpG9eyaqVOgpeG94Db3f8Sw/exec";
+  const GOOGLE_SCRIPT_URL_KY_TEN =
+    "https://script.google.com/macros/s/AKfycbx2Iy_9Vl5fGSH39qIyzPZh4-E4soV_qACmnl_WojkeSaBZ2jp55Z8fXUmG8i2x5Xk/exec";
 
   const data = {
     signature: signatureData,
@@ -238,7 +238,7 @@ function saveSignature(userId, userCard, scale) {
     formType: "ChuKy",
   };
 
-  fetch(GOOGLE_SCRIPT_URL_THAM_DU, {
+  fetch(GOOGLE_SCRIPT_URL_KY_TEN, {
     method: "POST",
     body: JSON.stringify(data),
     headers: {

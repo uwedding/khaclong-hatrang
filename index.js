@@ -23,14 +23,17 @@
 // Lưu form vào GG sheet
 
 const GOOGLE_SCRIPT_URL_THAM_DU =
-  "https://script.google.com/macros/s/AKfycbwrS8Y4NcDBCqZ_t97MNb1sVacGxLNVWQhUu6q2sAyO8hzKhSsM7-6DcnYpfUIMdhP3vw/exec";
+  "https://script.google.com/macros/s/AKfycbx2Iy_9Vl5fGSH39qIyzPZh4-E4soV_qACmnl_WojkeSaBZ2jp55Z8fXUmG8i2x5Xk/exec";
 document
   .querySelector("#form-loi-chuc-1")
   .addEventListener("submit", function (e) {
     e.preventDefault();
+    document.getElementById("SECTION20").scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
     const form = e.target; // Lấy form để reset sau này
     const formData = new FormData(form);
-    let selected = formData.getAll("form_item13");
     let selected_form_6 = formData.getAll("form_item6");
     let selected_form_8 = formData.getAll("form_item8");
     let selected_form_12 = formData.getAll("form_item12");
