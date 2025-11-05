@@ -1,0 +1,96 @@
+#BGcurtain,
+body.BGlock-scroll {
+  overflow: hidden;
+}
+:root {
+  --BGduration: 1000ms;
+  --BGeasing: cubic-bezier(0.51, -0.05, 0.58, 1);
+  --BGImageLeft: url("https://iili.io/KYokjDv.jpg");
+  --BGImageRight: url("https://iili.io/KYokhOJ.jpg");
+  --BGImageCenter: url("https://iili.io/K5c9RuS.png");
+  --BGImageCenterWidth: 250px;
+  --BGImageCenterHeight: 250px;
+  --BGImageCenterTime: 1s;
+  --BGImageCenterOpacityTime: 1.5s;
+  --BGImageCenterRotate: 360deg;
+}
+#BGcurtain {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: auto;
+  display: block;
+}
+.BGpanel {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: transform var(--BGduration) var(--BGeasing);
+  will-change: transform;
+  z-index: 100000000000;
+}
+.BGpanel.BGleft {
+  left: 0;
+  transform: translateX(0);
+  background-image: var(--BGImageLeft);
+  background-position: right center;
+}
+.BGpanel.BGright {
+  right: 0;
+  transform: translateX(0);
+  background-image: var(--BGImageRight);
+  background-position: left center;
+}
+#BGcurtain.BGopen .BGpanel.BGleft {
+  transform: translateX(-100%);
+}
+#BGcurtain.BGopen .BGpanel.BGright {
+  transform: translateX(100%);
+}
+#BGcurtain .BGlogo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  width: var(--BGImageCenterWidth);
+  height: var(--BGImageCenterHeight);
+  background: var(--BGImageCenter) no-repeat center/contain;
+  z-index: 100000000001;
+  border-radius: 100%;
+  box-sizing: border-box;
+  transition: transform var(--BGImageCenterTime) ease-in-out,
+    opacity var(--BGImageCenterOpacityTime) ease-in-out, filter 0.5s ease-in-out,
+    border 0.3s var(--BGeasing);
+}
+#BGcurtain.BGopen .BGlogo {
+  transform: translate(-50%, 200%) rotate(var(--BGImageCenterRotate));
+  opacity: 0;
+  border: 0 solid #e8e8e800;
+}
+.BGlogoPen {
+  filter: drop-shadow(0px 0px 10px rgb(0, 242, 255));
+}
+.BGlogoPenBorder {
+  border: 30px solid #fff;
+  transition: border 3s var(--BGeasing);
+}
+#BGtoggleBtn {
+  position: fixed;
+  z-index: 99999999999999;
+  top: 20px;
+  left: 20px;
+  padding: 0.6rem 1rem;
+  background: #0b63ff;
+  color: #fff;
+  border-radius: 8px;
+  border: 0;
+  cursor: pointer;
+  font-weight: 600;
+}
